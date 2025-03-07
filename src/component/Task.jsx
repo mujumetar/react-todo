@@ -27,7 +27,7 @@ function Task() {
     return (
         <>
             <AddTask HandleTask={HandleTask} task={task} setTask={setTask} data={data}/>
-            <List data={data}/>
+            <List data={data} setTask={setTask} setData={setData}/>
         </>
     )
 }
