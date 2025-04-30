@@ -2,7 +2,7 @@ import React from 'react'
 import { Container } from 'react-bootstrap';
 
 
-function List({ data , setTask, setData}) {
+function List({ data, setTask, setData }) {
 
 
 
@@ -15,7 +15,7 @@ function List({ data , setTask, setData}) {
     function delTask(id) {
         const deleData = data.filter((ele) => ele.id != id)
         setData(deleData)
-        
+
     }
 
 
@@ -25,9 +25,10 @@ function List({ data , setTask, setData}) {
                 data.map((ele) => (
                     <Container className='my-2'>
                         <div className={ele.status ? "row bg-success-subtle" : "row bg-danger-subtle"} key={ele.id}>
-                            <div className="col-4">{ele.task}</div>
-                            <div className="col-4"><button className="btn btn-sm"  onClick={() => updateTask(ele.id)}> {ele.status ? "completed ✔️" : "not completed 🔴"}</button></div>
-                            <div className="col-4"><button className='btn btn-secondary'  onClick={() => delTask(ele.id)}>🗑️</button></div>
+                            <div className="col-3"> {ele.id}</div>
+                            <div className="col-3">{ele.task}</div>
+                            <div className="col-3"><button className="btn btn-sm" onClick={() => updateTask(ele.id)}> {ele.status ? "completed ✔️" : "not completed 🔴"}</button></div>
+                            <div className="col-3"><button className='btn btn-secondary' onClick={() => delTask(ele.id)}>🗑️</button></div>
                         </div>
                     </Container>
 
