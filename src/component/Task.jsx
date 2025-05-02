@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import AddTask from './AddTask'
 
-import {  v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import List from './List';
 
 
@@ -22,20 +22,17 @@ function Task() {
 
     useEffect(() => {
         getLocal()
-    }, [])// [tasklist]
-    
+    }, [])
+
     const setLocal = (list) => {
         localStorage.setItem("taskList", JSON.stringify(list))
         console.log(list)
     }
-    setLocal(taskList)
-    
+
+
 
 
     function statusTodo(ele_id, el_id) {
-
-        // taskList.map((ele) => ele.id== ele_id ? {...ele, todos.map(el=> el.id == el_id ? {...el, status : !el.status} : el)} : ele)
-
 
         let newTAsk = taskList.find(ele => ele.id == ele_id)
 
@@ -48,7 +45,6 @@ function Task() {
 
 
     function handleTodo(ele, index) {
-        // todo.push(e)
 
         let newTodo = [...todo];
 
@@ -59,6 +55,8 @@ function Task() {
         }
 
         setTodo(newTodo)
+
+        console.log(newTodo)
 
         setCount(index + 2)
     }
@@ -73,11 +71,14 @@ function Task() {
             todos: todo,
             id: uuidv4()
         }
+
+
         if (upId) {
             console.log(upId)
             let newt = taskList.map((ele) => ele.id == upId ? ele = obj : ele)
             setLocal(newt)
             console.log(newt)
+            
         }
         else {
             taskList.push(obj);
@@ -85,12 +86,7 @@ function Task() {
         }
 
 
-        //    taskList  = [...taskList, obj]
 
-        // setTaskList([...taskList, obj])
-
-
-        // getLocal()
 
         setTask("")
 
@@ -102,13 +98,12 @@ function Task() {
 
 
     function delTask(id) {
-        // console.log(id)
         const update = taskList.filter((ele) => ele.id != id)
 
         setTaskList(update)
         setLocal(update)
 
-           getLocal()
+        getLocal()
     }
 
 
@@ -122,7 +117,7 @@ function Task() {
 
         setTaskList(update)
         setLocal(update)
-        //  getLocal()
+        getLocal()
 
     }
 
@@ -146,7 +141,7 @@ function Task() {
     return (
         <>
             <AddTask handleTask={handleTask} setTask={setTask} task={task} count={count} setCount={setCount} handleTodo={handleTodo} todo={todo} />
-            <List taskList={taskList} delTask={delTask} editTask={editTask} updateTask={updateTask} statusTodo={statusTodo} upId={upId} setTask={setTask} handleTodo={handleTodo} />
+            <List taskList={taskList} delTask={delTask} editTask={editTask} updateTask={updateTask} statusTodo={statusTodo} upId={upId} setTask={setTask} handleTodo={handleTodo} handleTask={handleTask} />
         </>
     )
 }
