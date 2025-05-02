@@ -43,6 +43,9 @@ function Task() {
         setLocal(taskList)
     }
 
+    // const  = new Date();
+    const timestamp = new Date();
+
 
     function handleTodo(ele, index) {
 
@@ -52,6 +55,7 @@ function Task() {
             to: ele,
             status: false,
             id: uuidv4()
+
         }
 
         setTodo(newTodo)
@@ -69,6 +73,7 @@ function Task() {
             task,
             status: false,
             todos: todo,
+            time: timestamp,
             id: uuidv4()
         }
 
@@ -78,7 +83,7 @@ function Task() {
             let newt = taskList.map((ele) => ele.id == upId ? ele = obj : ele)
             setLocal(newt)
             console.log(newt)
-            
+
         }
         else {
             taskList.push(obj);
@@ -140,8 +145,8 @@ function Task() {
 
     return (
         <>
-            <AddTask handleTask={handleTask} setTask={setTask} task={task} count={count} setCount={setCount} handleTodo={handleTodo} todo={todo} />
-            <List taskList={taskList} delTask={delTask} editTask={editTask} updateTask={updateTask} statusTodo={statusTodo} upId={upId} setTask={setTask} handleTodo={handleTodo} handleTask={handleTask} />
+            <AddTask handleTask={handleTask} setTask={setTask} task={task} count={count} setCount={setCount} handleTodo={handleTodo} todo={todo} timestamp={timestamp} />
+            <List taskList={taskList} delTask={delTask} editTask={editTask} updateTask={updateTask} statusTodo={statusTodo} upId={upId} setTask={setTask} timestamp={timestamp} handleTodo={handleTodo} handleTask={handleTask} />
         </>
     )
 }
