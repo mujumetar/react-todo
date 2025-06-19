@@ -76,14 +76,11 @@ function Task() {
             time: timestamp,
             id: uuidv4()
         }
-
-
         if (upId) {
             console.log(upId)
             let newt = taskList.map((ele) => ele.id == upId ? ele = obj : ele)
             setLocal(newt)
             console.log(newt)
-
         }
         else {
             taskList.push(obj);
@@ -94,7 +91,6 @@ function Task() {
 
 
         setTask("")
-
         setCount(0)
         setTodo([])
 
