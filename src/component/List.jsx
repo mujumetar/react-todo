@@ -9,7 +9,7 @@ function List({ taskList, delTask, editTask, updateTask, statusTodo, upId, setTa
     return (
         <>
             <Container className="my-3">
-                <Row className='g-3' >
+                <Row className='g-3 ' >
                     {
                     Array.isArray(taskList) && taskList.map((ele) => (
                             <Col lg={4} key={ele.id} >
@@ -34,7 +34,7 @@ function List({ taskList, delTask, editTask, updateTask, statusTodo, upId, setTa
                                     <ul className="list-group">
                                         {
                                             ele.todos.map((el) => (
-                                                <li className="list-group-item" key={el.id}>
+                                                <li className="list-group-item bg-dark text-white" key={el.id}>
                                                     <input className="form-check-input me-1" onClick={() => statusTodo(ele.id, el.id)} checked={el.status} type="checkbox" value={el.status ? "checked" : ""} id={"firstCheckbox" + el.id} />
                                                     <label className={el.status ? 'form-check-label ms-3 text-decoration-line-through text-secondary' : 'form-check-label ms-3'} for={"firstCheckbox" + el.id}>{el.to}</label>
                                                 </li>

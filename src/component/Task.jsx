@@ -57,11 +57,8 @@ function Task() {
             id: uuidv4()
 
         }
-
         setTodo(newTodo)
-
         console.log(newTodo)
-
         setCount(index + 2)
     }
 
@@ -86,10 +83,6 @@ function Task() {
             taskList.push(obj);
             setLocal(taskList)
         }
-
-
-
-
         setTask("")
         setCount(0)
         setTodo([])
@@ -100,10 +93,8 @@ function Task() {
 
     function delTask(id) {
         const update = taskList.filter((ele) => ele.id != id)
-
         setTaskList(update)
         setLocal(update)
-
         getLocal()
     }
 
@@ -124,16 +115,10 @@ function Task() {
 
 
     function updateTask(element) {
-
-
-
         setCount(element.todos.length)
         setTask(element.task);
-
         setUpId(element.id)
         setTodo(element.todos)
-
-
     }
 
 
